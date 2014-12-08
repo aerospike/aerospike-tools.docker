@@ -18,7 +18,8 @@ RUN \
   && tar xzf aerospike.tgz \
   && apt-get install python python-argparse -y \
   && cd aerospike-server-community-* \
-  && sudo dpkg -i aerospike-tools-*
+  && sudo dpkg -i aerospike-tools-* \
+  && sudo rm -rf /tmp/*
 
 # Expose Aerospike ports
 #
