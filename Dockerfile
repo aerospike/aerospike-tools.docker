@@ -21,6 +21,9 @@ RUN \
   && sudo dpkg -i aerospike-tools-* \
   && sudo rm -rf /tmp/*
 
+# Mount the Aerospike data directory
+VOLUME ["/opt/aerospike/data"]
+
 # Expose Aerospike ports
 #
 #   3000 – service port, for client connections
@@ -30,5 +33,7 @@ RUN \
 #
 EXPOSE 3000 3001 3002 3003 8081
 
-# Create a bash shell container to run tools
-ENTRYPOINT ["/bin/bash"]
+# Addition of wrapper script
+ADD astools.sh /usr/bin/astools.sh
+# Wrapper script entrypoint
+ENTRYPOINT ["/usr/bin/astools.sh"]

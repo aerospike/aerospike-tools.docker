@@ -18,27 +18,33 @@ This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospi
 
 1. The following will run `asd` with all the exposed ports forward to the host machine.
 
-	docker run -ti --name aerospike-tools aerospike/aerospike-server
+	docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tool>
+
+Example:
+
+```
+# docker run -ti aerospike/aerospike-tools asmonitor -e "asinfo -v statistics" -h host1.example.aerospike.com 
+```
 	
 2. Available tools:
 
-- /usr/bin/asmonitor -h SEED_HOST
+- asmonitor -h SEED_HOST
 
-- /usr/bin/asinfo -h SEED_HOST
+- asinfo -h SEED_HOST
 
-- /usr/bin/asadm -h SEED_HOST
+- asadm -h SEED_HOST
 
-- /usr/bin/asloglatency -h SEED_HOST
+- asloglatency -h SEED_HOST
 
-- /usr/bin/cli -h SEED_HOST
+- cli -h SEED_HOST
 
-- /usr/bin/ascli -h SEED_HOST
+- ascli -h SEED_HOST
 
-- /usr/bin/aql -h SEED_HOST
+- aql -h SEED_HOST
 
-- /usr/bin/asbackup -h SEED_HOST
+- asbackup -h SEED_HOST
 
-- /usr/bin/asrestore -h SEED_HOST
+- asrestore -h SEED_HOST
 
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
