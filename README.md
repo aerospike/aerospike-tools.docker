@@ -4,7 +4,7 @@ This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospi
 
 ### Dependencies
 
-- [ubuntu:14.04](https://registry.hub.docker.com/_/ubuntu/)
+- [debian:7](https://registry.hub.docker.com/_/debian/)
 
 ### Installation
 
@@ -20,7 +20,9 @@ docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools
 
 * The following will run `aerospike tools` with -h option to connect to a host.
 
-	docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools commands> -h <Seed_Host_IP>
+```
+docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools commands> -h <Seed_Host_IP>
+```
 
 Example:
 
