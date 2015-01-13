@@ -8,15 +8,17 @@ This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospi
 
 ### Installation
 
-1. Install [Docker](https://www.docker.io/).
+* Install [Docker](https://www.docker.io/).
 
-2. Build an image from Dockerfile:_
-   
-		docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools.docker
+* Build an image from Dockerfile:
+
+```   
+docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools.docker
+```
 
 ### Usage
 
-1. The following will run `aerospike tools` with -h option to connect to a host.
+* The following will run `aerospike tools` with -h option to connect to a host.
 
 	docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools commands> -h <Seed_Host_IP>
 
@@ -26,9 +28,11 @@ Example:
 # docker run -ti aerospike/aerospike-tools asmonitor -e "asinfo -v statistics" -h host1.example.aerospike.com 
 ```
 
-2. The following will run `aerospike tools` with --link alias option to connect to a linked container.
+* The following will run `aerospike tools` with --link alias option to connect to a linked container.
 
-        docker run -ti --name aerospike-tools --link <CONTAINER_NAME>:aerospike aerospike/aerospike-tools <Aerospike Tools commands>
+```
+docker run -ti --name aerospike-tools --link <CONTAINER_NAME>:aerospike aerospike/aerospike-tools <Aerospike Tools commands>
+```
 
 Example:
 
@@ -36,7 +40,7 @@ Example:
 docker run -ti --link aerospike:aerospike aerospike-tools asmonitor -e info
 ```
 	
-3. Available tools:
+* Available tools:
 
 - asmonitor -h SEED_HOST
 
