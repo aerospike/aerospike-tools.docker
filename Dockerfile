@@ -4,36 +4,26 @@
 # http://github.com/aerospike/aerospike-tools.docker
 #
 
-FROM ubuntu:14.04
+FROM debian:7
+
+# Work from /tmp
+WORKDIR /aerospike
 
 # Add Aerospike package and run script
-ADD http://aerospike.com/download/server/3.3.26/artifact/ubuntu12 /tmp/aerospike.tgz
-# Work from /tmp
-WORKDIR /tmp
+ADD http://aerospike.com/download/server/3.5.8/artifact/debian7 /aerospike/aerospike-tools.tgz
+
+ENV PATH /aerospike:$PATH
 
 # Install Aerospike
 RUN \
   apt-get update -y \
-  && ls -al /tmp/ \
-  && tar xzf aerospike.tgz \
+  && tar xzf aerospike-tools.tgz \
   && apt-get install python python-argparse -y \
   && cd aerospike-server-community-* \
-  && sudo dpkg -i aerospike-tools-* \
-  && sudo rm -rf /tmp/*
-
-# Mount the Aerospike data directory
-VOLUME ["/opt/aerospike/data"]
-
-# Expose Aerospike ports
-#
-#   3000 – service port, for client connections
-#   3001 – fabric port, for cluster communication
-#   3002 – mesh port, for cluster heartbeat
-#   3003 – info port
-#
-EXPOSE 3000 3001 3002 3003 8081
+  && dpkg -i aerospike-tools-* 
 
 # Addition of wrapper script
-ADD astools.sh /usr/bin/astools.sh
+ADD wrapper.sh /aerospike/wrapper
+
 # Wrapper script entrypoint
-ENTRYPOINT ["/usr/bin/astools.sh"]
+ENTRYPOINT ["wrapper"]
