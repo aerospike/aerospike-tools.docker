@@ -23,8 +23,9 @@ RUN \
   && tar xzf aerospike-tools.tgz --strip-components=1 \
   && echo "$AEROSPIKE_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
   && apt-get install python python-argparse -y \
-  && dpkg -i aerospike-tools-* \
-  && rm -rf aerospike-tools.tgz /var/lib/apt/lists/*
+  && aerospike-tools-deps/install.sh \
+  && dpkg -i aerospike-tools-*.debian7.x86_64.deb \
+  && rm -rf asinstall aerospike-tools.tgz aerospike-tools-deps *.deb /var/lib/apt/lists/*
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
