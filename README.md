@@ -2,19 +2,6 @@
 
 This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospike.com/docs/tools/). 
 
-### Dependencies
-
-- [debian:7](https://registry.hub.docker.com/_/debian/)
-
-### Installation
-
-* Install [Docker](https://www.docker.io/).
-
-* Build an image from Dockerfile:
-
-```   
-docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools.docker
-```
 
 ### Usage
 
