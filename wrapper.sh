@@ -28,9 +28,9 @@ case "$CMD" in
 esac
 
 if [[ $AEROSPIKE_PORT_3000_TCP_ADDR ]]; then
-$CMD -h $AEROSPIKE_PORT_3000_TCP_ADDR -p $AEROSPIKE_PORT_3000_TCP_PORT $@
+$CMD -h $AEROSPIKE_PORT_3000_TCP_ADDR -p $AEROSPIKE_PORT_3000_TCP_PORT "$@"
 exit $?
 else
-$CMD $@
+$CMD "$@"
 exit $?
 fi  
