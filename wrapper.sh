@@ -20,7 +20,7 @@ if [ $? -ne 0 ]; then
 fi
 
 case "$CMD" in
-"ascli" | "aql" | "cli" | "asmonitor" | "asadm" | "asbackup" | "asrestore" | "asloglatency" ) 
+"ascli" | "aql" | "cli" | "asmonitor" | "asadm" | "asbackup" | "asrestore" | "asloglatency" | "asinfo" ) 
   ;;
 * )
   echo "error: Unknown command: $CMD" >&2
