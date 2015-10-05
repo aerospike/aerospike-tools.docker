@@ -27,7 +27,7 @@ RUN \
   && apt-get purge -y --auto-remove wget ca-certificates
 
 
-RUN ls /aerospike && dpkg -i /aerospike/aerospike-tools-*.debian7.x86_64.deb \
+RUN ls /aerospike/aerospike && dpkg -i /aerospike/aerospike/aerospike-tools-*.debian7.x86_64.deb \
   && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
