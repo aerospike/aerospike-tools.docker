@@ -25,9 +25,10 @@ RUN \
   && mkdir aerospike \
   && tar xzf aerospike-tools.tgz --strip-components=1 -C aerospike \
   && apt-get purge -y --auto-remove wget ca-certificates
-RUN dpkg -i /aerospike/aerospike-tools-3.6.1.debian7.x86_64.deb \
-  && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
+
+RUN ls /aerospike && dpkg -i /aerospike/aerospike-tools-*.debian7.x86_64.deb \
+  && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
