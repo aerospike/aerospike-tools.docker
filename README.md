@@ -26,22 +26,16 @@ docker run -ti --name aerospike-tools --link <CONTAINER_NAME>:aerospike aerospik
 Example:
 
 ```
-docker run -ti --link aerospike:aerospike aerospike-tools asmonitor -e info
+docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e info
 ```
 	
 * Available tools:
-
-- asmonitor -h SEED_HOST
 
 - asinfo -h SEED_HOST
 
 - asadm -h SEED_HOST
 
 - asloglatency -h SEED_HOST
-
-- cli -h SEED_HOST
-
-- ascli -h SEED_HOST
 
 - aql -h SEED_HOST
 
