@@ -26,7 +26,7 @@ docker run -ti --name aerospike-tools --link <CONTAINER_NAME>:aerospike aerospik
 Example:
 
 ```
-docker run -ti --link aerospike:aerospike aerospike-tools asmonitor -e info
+docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asmonitor -e info
 ```
 	
 * Available tools:
