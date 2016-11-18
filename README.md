@@ -14,7 +14,7 @@ docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools
 Example:
 
 ```
-# docker run -ti aerospike/aerospike-tools asmonitor -e "asinfo -v statistics" -h host1.example.aerospike.com 
+# docker run -ti aerospike/aerospike-tools asadm -e "asinfo -v statistics" -h host1.example.aerospike.com 
 ```
 
 * The following will run `aerospike tools` with --link alias option to connect to a linked container.
