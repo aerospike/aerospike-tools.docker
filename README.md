@@ -6,6 +6,7 @@ This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospi
 ### Usage
 
 * The following will run `aerospike tools` with -h option to connect to a host.
+Please use --no-config-file option when using asadm.
 
 ```
 docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools commands> -h <Seed_Host_IP>
@@ -14,7 +15,7 @@ docker run -ti --name aerospike-tools aerospike/aerospike-tools <Aerospike Tools
 Example:
 
 ```
-# docker run -ti aerospike/aerospike-tools asadm -e "asinfo -v statistics" -h host1.example.aerospike.com 
+# docker run -ti aerospike/aerospike-tools asadm -e "asinfo -v statistics" --no-config-file  -h host1.example.aerospike.com 
 ```
 
 * The following will run `aerospike tools` with --link alias option to connect to a linked container.
@@ -26,22 +27,22 @@ docker run -ti --name aerospike-tools --link <CONTAINER_NAME>:aerospike aerospik
 Example:
 
 ```
-docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e info
+docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e info --no-config-file
 ```
 	
 * Available tools:
 
-- asinfo -h SEED_HOST
+- asinfo -h SEED_HOST --no-config-file
 
-- asadm -h SEED_HOST
+- asadm -h SEED_HOST --no-config-file
 
 - asloglatency -h SEED_HOST
 
-- aql -h SEED_HOST
+- aql -h SEED_HOST --no-config-file
 
-- asbackup -h SEED_HOST
+- asbackup -h SEED_HOST --no-config-file
 
-- asrestore -h SEED_HOST
+- asrestore -h SEED_HOST --no-config-file
 
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
