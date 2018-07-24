@@ -5,6 +5,8 @@ This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospi
 
 ### Usage
 
+* Please see our [comprehensive usage guide](https://www.aerospike.com/docs/deploy_guides/docker/tools/index.html#usage)
+
 * The following will run `aerospike tools` with -h option to connect to a host.
 Please use --no-config-file option when using asadm.
 
