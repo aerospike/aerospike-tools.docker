@@ -4,8 +4,8 @@
 # http://github.com/aerospike/aerospike-tools.docker
 #
 
-# Using openjdk:13-jdk-slim-buster for asbenchmark, rest of the tools should work fine.
-FROM openjdk:13-jdk-slim-buster
+# Using openjdk:11-jre-slim (debian 10) for asbenchmark, rest of the tools should work fine.
+FROM openjdk:11-jre-slim
 
 ENV AEROSPIKE_VERSION 3.21.1
 ENV AEROSPIKE_SHA256 ed0d074ee32f8dc535a072a2b6556f47cc63515ed315adaf759ad70e063efc40
