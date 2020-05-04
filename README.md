@@ -46,6 +46,10 @@ docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e inf
 
 - asrestore -h SEED_HOST --no-config-file
 
+- asvalidation -h SEED_HOST --no-config-file
+
+- asloader -h SEED_HOST
+
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
 
