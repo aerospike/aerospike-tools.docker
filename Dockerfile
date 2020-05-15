@@ -12,7 +12,6 @@ ENV AEROSPIKE_SHA256 46dad2cc8f1566b6d6214862e175b3cacd816036432be6dc541564247ad
 # Work from /aerospike
 WORKDIR /aerospike
 
-
 ENV PATH /aerospike:$PATH
 
 # Install Aerospike
