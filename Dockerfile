@@ -18,7 +18,7 @@ ENV PATH /aerospike:$PATH
 
 RUN \
   apt-get update -y \
-  && apt-get install -y python wget logrotate ca-certificates python-dev python-setuptools python-argparse python-bcrypt openssl python-openssl  \
+  && apt-get install -y python3-pip python3 python wget logrotate ca-certificates python-dev python-setuptools python-argparse python-bcrypt openssl python-openssl  \
   && wget "https://www.aerospike.com/artifacts/aerospike-tools/${AEROSPIKE_VERSION}/aerospike-tools-${AEROSPIKE_VERSION}-debian10.tgz" -O aerospike-tools.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
   && mkdir aerospike \
