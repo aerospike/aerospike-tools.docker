@@ -4,7 +4,8 @@
 # http://github.com/aerospike/aerospike-tools.docker
 #
 
-FROM openjdk:11-jre-slim 
+# FROM openjdk:11-jre-slim 
+FROM docker:10
 
 ENV AEROSPIKE_VERSION 6.1.0
 ENV AEROSPIKE_SHA256 9c5776191e1516113ce6eccc17fbcc3b2ee9d12cccbe8749cef36a264526a91f
