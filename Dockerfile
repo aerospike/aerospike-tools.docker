@@ -4,7 +4,6 @@
 # http://github.com/aerospike/aerospike-tools.docker
 #
 
-# FROM openjdk:11-jre-slim-buster 
 FROM debian:buster-slim 
 
 ENV AEROSPIKE_VERSION 6.2.0
