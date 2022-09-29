@@ -21,7 +21,6 @@ RUN \
   && apt-get install -y python3-pip python3 python3-distutils python3-apt python wget logrotate ca-certificates python3-dev python3-setuptools openssl python3-openssl libcurl4-openssl-dev\
   && wget "https://www.aerospike.com/artifacts/aerospike-tools/${AEROSPIKE_VERSION}/aerospike-tools-${AEROSPIKE_VERSION}-debian11.tgz" -O aerospike-tools.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
-  && echo sha256sum aerospike-tools.tgz \ 
   && mkdir aerospike \
   && tar xzf aerospike-tools.tgz --strip-components=1 -C aerospike \
   && apt-get purge -y --auto-remove wget  
