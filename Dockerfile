@@ -6,8 +6,8 @@
 
 FROM debian:bullseye-slim 
 
-ENV AEROSPIKE_VERSION 7.2.1
-ENV AEROSPIKE_SHA256 b0f3f3414150295d9190c1894bd800cf0342e1d60b2acf85bdb7f2d769df9cb0
+ENV AEROSPIKE_VERSION 7.3.1
+ENV AEROSPIKE_SHA256 6dd56489f31286ef3124fd900627cb697d07d3661122c8519ca452724f60bb9d
 
 # Work from /aerospike
 WORKDIR /aerospike
@@ -18,7 +18,7 @@ ENV PATH /aerospike:$PATH
 
 RUN \
   apt-get update -y \
-  && apt-get install -y python3-pip python3 python3-distutils python3-apt python wget logrotate ca-certificates python3-dev python3-setuptools openssl python3-openssl libcurl4-openssl-dev\
+  && apt-get install -y python3-pip python3 python3-distutils python3-apt wget logrotate ca-certificates python3-dev python3-setuptools openssl python3-openssl libcurl4-openssl-dev\
   && wget "https://www.aerospike.com/artifacts/aerospike-tools/${AEROSPIKE_VERSION}/aerospike-tools-${AEROSPIKE_VERSION}-debian11.tgz" -O aerospike-tools.tgz \
   && echo "$AEROSPIKE_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
   && mkdir aerospike \
