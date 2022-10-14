@@ -4,7 +4,7 @@ This repository contains the Dockerfile for building a Docker image for running 
 
 ## Dependencies
 
-- [debian:7](https://registry.hub.docker.com/_/ubuntu/)
+- [debian:11](https://registry.hub.docker.com/_/debian/)
 
 ## Installation
 
@@ -12,7 +12,7 @@ This repository contains the Dockerfile for building a Docker image for running 
 
 2. Download from public [Docker Registry](https://index.docker.io/):
 
-		docker pull aerospike/aerospike-server
+		docker pull aerospike/aerospike-tools
 
 	_Alternatively, you can build an image from Dockerfile:_
    
