@@ -2,6 +2,10 @@
 
 This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospike.com/docs/tools/). 
 
+### Building
+```
+DOCKER_BUILDKIT=1 docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools.docker
+```
 
 ### Usage
 
@@ -34,17 +38,17 @@ docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e inf
 	
 * Available tools:
 
-- asinfo -h SEED_HOST --no-config-file
+    * `asinfo -h SEED_HOST --no-config-file`
 
-- asadm -h SEED_HOST --no-config-file
+    * `asadm -h SEED_HOST --no-config-file`
 
-- asloglatency -h SEED_HOST
+    * `asloglatency -h SEED_HOST`
 
-- aql -h SEED_HOST --no-config-file
+    * `aql -h SEED_HOST --no-config-file`
 
-- asbackup -h SEED_HOST --no-config-file
+    * `asbackup -h SEED_HOST --no-config-file`
 
-- asrestore -h SEED_HOST --no-config-file
+    * `asrestore -h SEED_HOST --no-config-file`
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
 
