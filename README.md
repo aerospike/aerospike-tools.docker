@@ -36,19 +36,19 @@ Example:
 docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e info --no-config-file
 ```
 	
-* Available tools:
+### Available tools:
 
-    * `asinfo -h SEED_HOST --no-config-file`
+* `asinfo -h SEED_HOST --no-config-file`
 
-    * `asadm -h SEED_HOST --no-config-file`
+* `asadm -h SEED_HOST --no-config-file`
 
-    * `asloglatency -h SEED_HOST`
+* `asloglatency -h SEED_HOST`
 
-    * `aql -h SEED_HOST --no-config-file`
+* `aql -h SEED_HOST --no-config-file`
 
-    * `asbackup -h SEED_HOST --no-config-file`
+* `asbackup -h SEED_HOST --no-config-file`
 
-    * `asrestore -h SEED_HOST --no-config-file`
+* `asrestore -h SEED_HOST --no-config-file`
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
 
