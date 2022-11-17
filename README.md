@@ -50,6 +50,10 @@ docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e inf
 
 * `asrestore -h SEED_HOST --no-config-file`
 
+* `asbench -h SEED_HOST`
+
+* `uda`
+
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
 
 
