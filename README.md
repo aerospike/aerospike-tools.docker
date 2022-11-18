@@ -52,7 +52,7 @@ docker run -ti --link aerospike:aerospike aerospike/aerospike-tools asadm -e inf
 
 * `asbench -h SEED_HOST`
 
-* `uda`
+* `uda` -h SEED_HOST
 
 Addtional info on using our tools can be found [here](http://www.aerospike.com/docs/tools/)
 
