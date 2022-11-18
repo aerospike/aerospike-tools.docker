@@ -4,7 +4,7 @@
 # http://github.com/aerospike/aerospike-tools.docker
 #
 
-FROM bullseye-20221114-slim 
+FROM debian:bullseye-20221114-slim 
 
 ARG TARGETARCH
 ARG TOOLS_VERSION=8.0.1
