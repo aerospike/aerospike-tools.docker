@@ -6,8 +6,9 @@
 
 FROM debian:bullseye-slim 
 
-ENV AEROSPIKE_VERSION 7.3.1
-ENV AEROSPIKE_SHA256 6dd56489f31286ef3124fd900627cb697d07d3661122c8519ca452724f60bb9d
+ARG TARGETARCH
+ARG TOOLS_VERSION=8.0.0
+ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian11"
 
 # Work from /aerospike
 WORKDIR /aerospike
@@ -17,16 +18,25 @@ ENV PATH /aerospike:$PATH
 # Install Aerospike
 
 RUN \
+  if [ "${TARGETARCH}" = "arm64" ]; then \
+    export PKG_TARGETARCH="aarch64"; \
+  elif [ "${TARGETARCH}" = "amd64" ]; then \
+    export PKG_TARGETARCH="x86_64"; \
+  else \
+    exit 1; \
+  fi; \
   apt-get update -y \
   && apt-get install -y python3-pip python3 python3-distutils python3-apt wget logrotate ca-certificates python3-dev python3-setuptools openssl python3-openssl libcurl4-openssl-dev\
-  && wget "https://www.aerospike.com/artifacts/aerospike-tools/${AEROSPIKE_VERSION}/aerospike-tools-${AEROSPIKE_VERSION}-debian11.tgz" -O aerospike-tools.tgz \
-  && echo "$AEROSPIKE_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
+  && wget "${TOOLS_ARTIFACT_URL_BASE}_${PKG_TARGETARCH}.tgz" -O aerospike-tools.tgz \
   && mkdir aerospike \
   && tar xzf aerospike-tools.tgz --strip-components=1 -C aerospike \
+  && TOOLS_SHA256=$(wget "${TOOLS_ARTIFACT_URL_BASE}_${PKG_TARGETARCH}.tgz.sha256" \
+  && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
+  && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c - \
   && apt-get purge -y --auto-remove wget  
 
 
-RUN ls /aerospike/aerospike && dpkg -i /aerospike/aerospike/aerospike-tools-*.debian11.x86_64.deb \
+RUN ls /aerospike/aerospike && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
   && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
