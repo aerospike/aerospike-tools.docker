@@ -7,7 +7,7 @@
 FROM debian:bullseye-slim 
 
 ARG TARGETARCH
-ARG TOOLS_VERSION=8.0.2
+ARG TOOLS_VERSION=8.0.3
 ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian11"
 
 # Work from /aerospike
