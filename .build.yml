@@ -1,0 +1,14 @@
+name: aerospike-tools.docker
+
+container:
+  - base:
+      - docker.qe.aerospike.com/build/aerospike-tools.docker:latest
+
+build:
+  - name: default
+    environment:
+      DOCKER_BUILDKIT: 1
+    script:
+      - docker build -t="aerospike/aerospike-tools"  .
+      - docker tag aerospike/aerospike-tools docker.qe.aerospike.com/aerospike/aerospike-tools
+      - docker push docker.qe.aerospike.com/aerospike/aerospike-tools
