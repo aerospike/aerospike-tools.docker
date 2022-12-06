@@ -13,4 +13,4 @@ build:
       - docker tag aerospike/aerospike-tools docker.qe.aerospike.com/aerospike/aerospike-tools
       - docker push docker.qe.aerospike.com/aerospike/aerospike-tools
     artifact:
-      - Dockerfile
+      - /work/source/Dockerfile
