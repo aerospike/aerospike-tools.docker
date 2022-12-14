@@ -51,16 +51,17 @@ RUN \
 FROM debian:bullseye-slim as install
 
 # Work from /aerospike
-WORKDIR /install
+WORKDIR /aerospike
+ENV PATH /aerospike:$PATH
 
 # Install Aerospike
 
-COPY --from=build Python-* /install/Python
-COPY --from=build aerospike/aerospike-tools*.deb /install/aerospike/
+COPY --from=build Python-* /aerospike/Python
+COPY --from=build aerospike/aerospike-tools*.deb /aerospike/aerospike/
 COPY --from=build /usr/bin/make /usr/bin/
 
-RUN ls /install && ls /install/Python && make -C Python install && dpkg -i /install/aerospike/aerospike-tools*.deb \
-  && rm -rf install
+RUN ls /aerospike && ls /aerospike/Python && make -C Python install && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
+  && rm -rf aerospike /usr/bin/make
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
