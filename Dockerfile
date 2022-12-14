@@ -58,10 +58,9 @@ ENV PATH /aerospike:$PATH
 
 COPY --from=build Python-* /aerospike/Python
 COPY --from=build aerospike/aerospike-tools*.deb /aerospike/aerospike/
-COPY --from=build /usr/bin/make /usr/bin/
 
-RUN ls /aerospike && ls /aerospike/Python && make -C Python install && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
-  && rm -rf aerospike /usr/bin/make
+RUN apt update && apt install -y libreadline8 make && ls /aerospike && ls /aerospike/Python && make -C Python install && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
+  && apt-get purge -y --auto-remove make &&  rm -rf aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
