@@ -8,3 +8,7 @@ build:
   - name: default
     environment:
       DOCKER_BUILDKIT: 1
+
+qe-registry:
+  - dockerfile: ./Dockerfile
+  - registry:  docker.qe.aerospike.com/aerospike/aerospike-tools
