@@ -1,6 +1,6 @@
 ## Aerospike Tools Dockerfile
 
-This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospike.com/docs/tools/)......
+This repository contains the Dockerfile for [Aerospike Tools](http://www.aerospike.com/docs/tools/).......
 ### Building
 ```
 DOCKER_BUILDKIT=1 docker build -t="aerospike/aerospike-tools" github.com/aerospike/aerospike-tools.docker
