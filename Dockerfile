@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bullseye-20221219-slim AS build
+FROM debian:bullseye-slim AS build
 
 ARG TARGETARCH
 
