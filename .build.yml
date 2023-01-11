@@ -2,7 +2,8 @@ name: aerospike-tools.docker
 
 container:
   - base:
-      - docker.qe.aerospike.com/build/aerospike-tools.docker:latest
+#       - docker.qe.aerospike.com/build/aerospike-tools.docker:latest
+  - docker.qe.aerospike.com/build/aerospike-tools-alt:ubuntu-16.04
 
 build:
   - name: default
