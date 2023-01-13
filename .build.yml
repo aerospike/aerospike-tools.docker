@@ -14,4 +14,4 @@ build:
 
 qe-registry:
   - dockerfile: /work/source/Dockerfile
-  - registry:  docker.qe.aerospike.com/aerospike/aerospike-tools
+  - tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
