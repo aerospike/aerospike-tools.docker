@@ -10,7 +10,7 @@ build:
     environment:
       DOCKER_BUILDKIT: 1
     script:
-      - ls
+      - sleep 120
 
 qe-registry:
   - dockerfile: /work/source/Dockerfile
