@@ -12,7 +12,7 @@ build:
     script:
       - sleep 120
       - cd /work/source/
-      - docker build -t docker.qe.aerospike.com/aerospike/aerospike-tools
+      - docker build -t docker.qe.aerospike.com/aerospike/aerospike-tools .
       - docker push docker.qe.aerospike.com/aerospike/aerospike-tools
 
 qe-registry:
