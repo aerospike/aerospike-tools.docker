@@ -24,7 +24,7 @@ RUN \
   elif [ "${TARGETARCH}" = "amd64" ]; then \
     export PKG_TARGETARCH="x86_64"; \
   else \
-    exit 1; \
+    export PKG_TARGETARCH=$(uname -m); \
   fi; \
   apt-get update -y \
   && apt-get install -y python3 wget \
