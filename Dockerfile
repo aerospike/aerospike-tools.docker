@@ -39,7 +39,7 @@ RUN \
   elif [ "${TARGETARCH}" = "amd64" ]; then \
     export PKG_TARGETARCH="x86_64"; \
   else \
-    exit 1; \
+    export PKG_TARGETARCH=$(uname -m); \
   fi; \
   wget "${TOOLS_ARTIFACT_URL_BASE}_${PKG_TARGETARCH}.tgz" -O aerospike-tools.tgz \
   && mkdir aerospike \
