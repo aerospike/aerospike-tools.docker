@@ -16,5 +16,5 @@ build:
 #       - docker push docker.qe.aerospike.com/aerospike/aerospike-tools
 
 qe-registry:
-  - dockerfile: /qe/source/version1.Dockerfile
-  - tag:  docker.qe.aerospike.com/aerospike/aerospike-tools:version1
+  - dockerfile: /qe/source/Dockerfile
+  - tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
