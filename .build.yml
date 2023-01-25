@@ -7,13 +7,6 @@ container:
 
 build:
   - name: default
-    environment:
-      DOCKER_BUILDKIT: 1
-    script:
-      - sleep 60
-#       - cd /work/source/
-#       - docker build -t docker.qe.aerospike.com/aerospike/aerospike-tools .
-#       - docker push docker.qe.aerospike.com/aerospike/aerospike-tools
 
 qe-registry:
   - dockerfile: /qe/source/Dockerfile
