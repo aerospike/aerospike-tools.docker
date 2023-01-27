@@ -8,6 +8,6 @@ container:
 build:
   - name: default
 
-qe-registry:
-  - dockerfile: /qe/source/Dockerfile
-    tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
+# qe-registry:
+#   - dockerfile: /qe/source/Dockerfile
+#     tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
