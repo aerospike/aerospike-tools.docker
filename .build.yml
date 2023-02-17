@@ -11,3 +11,6 @@ build:
 qe-registry:
   - dockerfile: Dockerfile
     tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
+    buildarg:
+      AEROSPIKE_BRANCH: arm-port-1
+      AEROSPIKE_VERSION_PREFIX: 6.1
