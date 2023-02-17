@@ -9,5 +9,5 @@ build:
   - name: default
 
 qe-registry:
-  - dockerfile: /qe/source/Dockerfile
+  - dockerfile: Dockerfile
     tag:  docker.qe.aerospike.com/aerospike/aerospike-tools
