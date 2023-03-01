@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bullseye-slim AS build
+FROM debian:11.6-slim AS build
 
 ARG TARGETARCH
 
@@ -48,7 +48,7 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bullseye-slim as install
+FROM debian:11.6-slim as install
 
 # Work from /aerospike
 WORKDIR /aerospike
