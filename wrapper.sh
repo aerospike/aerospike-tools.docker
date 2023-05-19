@@ -4,6 +4,7 @@
 
 export PATH=$PATH:/opt/aerospike/lib/python
 export PYTHONPATH=$PYTHONPATH:/opt/aerospike/lib/python
+export LC_ALL=C.UTF-8
 
 CMD="$1"
 shift
