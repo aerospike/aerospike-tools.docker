@@ -2,8 +2,6 @@
 #set -x
 #set -e
 
-export PATH=$PATH:/opt/aerospike/lib/python
-export PYTHONPATH=$PYTHONPATH:/opt/aerospike/lib/python
 # Sets locale to utf-8 instead of posix. 
 # This allows asadm to display the mu symbol when micro-benchmarks are enabled
 export LC_CTYPE=C.UTF-8 
