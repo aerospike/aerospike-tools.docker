@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bullseye-slim AS build
+FROM debian:bookworm-slim
 
 ARG TARGETARCH
 
@@ -11,27 +11,15 @@ RUN \
   apt-get update -y \
   && apt-get install -y \
   wget \
-  build-essential \
-  zlib1g-dev \
-  libncurses5-dev \
-  libgdbm-dev \
-  libnss3-dev \
-  libssl-dev \
-  libreadline-dev \
-  libffi-dev \
-  libsqlite3-dev \
-  libbz2-dev
-
-# Build and Install Python from source
-RUN \
-  wget https://www.python.org/ftp/python/3.10.9/Python-3.10.9.tgz \
-  && tar -xf Python-*.tgz \
-  && cd Python-*/ \
-  && ./configure --enable-optimizations \
-  && make
+  python3 \
+  libreadline8
 
 ARG TOOLS_VERSION=9.0.0
-ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian11"
+ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian12"
+
+# Work from /aerospike
+WORKDIR /aerospike
+ENV PATH /aerospike:$PATH
 
 RUN \
   if [ "${TARGETARCH}" = "arm64" ]; then \
@@ -48,19 +36,9 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bullseye-slim as install
-
-# Work from /aerospike
-WORKDIR /aerospike
-ENV PATH /aerospike:$PATH
-
-# Install Aerospike
-
-COPY --from=build Python-* /aerospike/Python
-COPY --from=build aerospike/aerospike-tools*.deb /aerospike/aerospike/
-
-RUN apt update && apt install -y libreadline8 make && ls /aerospike && ls /aerospike/Python && make -C Python install && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
-  && apt-get purge -y --auto-remove make &&  rm -rf aerospike /var/lib/apt/lists/*
+# Install Aerospike tools
+RUN apt update && apt install -y libreadline8 && ls /aerospike && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
+  && apt-get purge -y --auto-remove wget && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
