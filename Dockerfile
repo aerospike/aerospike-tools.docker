@@ -3,23 +3,17 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bookworm-slim
+FROM debian:bookworm-slim as build
 
 ARG TARGETARCH
 
 RUN \
   apt-get update -y \
   && apt-get install -y \
-  wget \
-  python3 \
-  libreadline8
+  wget
 
 ARG TOOLS_VERSION=9.0.0
 ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian12"
-
-# Work from /aerospike
-WORKDIR /aerospike
-ENV PATH /aerospike:$PATH
 
 RUN \
   if [ "${TARGETARCH}" = "arm64" ]; then \
@@ -36,9 +30,18 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
+FROM debian:bookworm-slim as install
+
+# Work from /aerospike
+WORKDIR /aerospike
+ENV PATH /aerospike:$PATH
+
 # Install Aerospike tools
-RUN apt update && apt install -y libreadline8 && ls /aerospike && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
-  && apt-get purge -y --auto-remove wget && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
+
+COPY --from=build aerospike/aerospike-tools*.deb /aerospike/aerospike/
+
+RUN apt update && apt install -y libreadline8 python3 && ls /aerospike && dpkg -i /aerospike/aerospike/aerospike-tools*.deb \
+  && rm -rf aerospike-tools.tgz aerospike /var/lib/apt/lists/*
 
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper

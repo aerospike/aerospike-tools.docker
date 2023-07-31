@@ -2,6 +2,10 @@
 #set -x
 #set -e
 
+# Sets locale to utf-8 instead of posix. 
+# This allows asadm to display the mu symbol when micro-benchmarks are enabled
+export LC_CTYPE=C.UTF-8 
+
 CMD="$1"
 shift
 
