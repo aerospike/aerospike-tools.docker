@@ -12,7 +12,7 @@ RUN \
   && apt-get install -y \
   wget
 
-ARG TOOLS_VERSION=9.0.0
+ARG TOOLS_VERSION=9.1.0
 ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian12"
 
 RUN \

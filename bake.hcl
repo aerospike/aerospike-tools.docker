@@ -16,13 +16,13 @@ group "test" {
 }
 
 target "aerospike_tools_amd64" {
-	 tags=["aerospike/aerospike-tools-amd64:9.0.0", "aerospike/aerospike-tools-amd64:latest"]
+	 tags=["aerospike/aerospike-tools-amd64:9.1.0", "aerospike/aerospike-tools-amd64:latest"]
 	 platforms=["linux/amd64"]
 	 context="."
 }
 
 target "aerospike_tools_arm64" {
-	 tags=["aerospike/aerospike-tools-arm64:9.0.0", "aerospike/aerospike-tools-arm64:latest"]
+	 tags=["aerospike/aerospike-tools-arm64:9.1.0", "aerospike/aerospike-tools-arm64:latest"]
 	 platforms=["linux/arm64"]
 	 context="."
 }
@@ -34,7 +34,7 @@ group "push" {
 }
 
 target "aerospike_tools" {
-	 tags=["aerospike/aerospike-tools:9.0.0", "aerospike/aerospike-tools:9.0.0_2", "aerospike/aerospike-tools:latest"]
+	 tags=["aerospike/aerospike-tools:9.1.0", "aerospike/aerospike-tools:9.1.0_1", "aerospike/aerospike-tools:latest"]
 	 platforms=["linux/amd64,linux/arm64"]
 	 context="."
 }
