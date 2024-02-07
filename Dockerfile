@@ -46,5 +46,7 @@ RUN apt update && apt install -y libreadline8 python3 && ls /aerospike && dpkg -
 # Addition of wrapper script
 ADD wrapper.sh /aerospike/wrapper
 
+USER aerospike
+
 # Wrapper script entrypoint
 ENTRYPOINT ["wrapper"]
