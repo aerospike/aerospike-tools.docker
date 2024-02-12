@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bookworm-slim as build
+FROM ubuntu:22.04 as build
 
 ARG TARGETARCH
 
@@ -13,7 +13,7 @@ RUN \
   wget
 
 ARG TOOLS_VERSION=10.2.1
-ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian12"
+ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_ubuntu22.04"
 
 RUN \
   if [ "${TARGETARCH}" = "arm64" ]; then \
@@ -30,7 +30,7 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bookworm-slim as install
+FROM ubuntu:22.04 as install
 
 # Work from /aerospike
 WORKDIR /aerospike
