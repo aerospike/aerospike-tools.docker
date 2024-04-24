@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bookworm-slim as build
+FROM debian:12.5-slim as build
 
 ARG TARGETARCH
 
@@ -30,7 +30,7 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bookworm-slim as install
+FROM debian:12.5-slim as install
 
 # Work from /aerospike
 WORKDIR /aerospike
