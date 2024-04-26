@@ -16,13 +16,13 @@ group "test" {
 }
 
 target "aerospike_tools_amd64" {
-	 tags=["aerospike/aerospike-tools-amd64:8.5.1"]
+	 tags=["aerospike/aerospike-tools-amd64:10.0.0"]
 	 platforms=["linux/amd64"]
 	 context="."
 }
 
 target "aerospike_tools_arm64" {
-	 tags=["aerospike/aerospike-tools-arm64:8.5.1"]
+	 tags=["aerospike/aerospike-tools-arm64:10.0.0"]
 	 platforms=["linux/arm64"]
 	 context="."
 }
@@ -34,7 +34,7 @@ group "push" {
 }
 
 target "aerospike_tools" {
-	 tags=["aerospike/aerospike-tools:8.5.1", "aerospike/aerospike-tools:8.5.1_3"]
+	 tags=["aerospike/aerospike-tools:10.0.0", "aerospike/aerospike-tools:10.0.0_3"]
 	 platforms=["linux/amd64,linux/arm64"]
 	 context="."
 }
