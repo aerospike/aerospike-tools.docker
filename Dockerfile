@@ -30,7 +30,7 @@ RUN \
   && ./configure --enable-optimizations \
   && make
 
-ARG TOOLS_VERSION=8.1.0
+ARG TOOLS_VERSION=8.5.1
 ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian11"
 
 RUN \
