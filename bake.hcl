@@ -34,7 +34,7 @@ group "push" {
 }
 
 target "aerospike_tools" {
-	 tags=["aerospike/aerospike-tools:10.2.1", "aerospike/aerospike-tools:10.2.1_6"]
+	 tags=["aerospike/aerospike-tools:10.2.1", "aerospike/aerospike-tools:10.2.1_7"]
 	 platforms=["linux/amd64,linux/arm64"]
 	 context="."
 }
