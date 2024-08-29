@@ -37,6 +37,5 @@ echo "$META_INFO" > meta-file
 jf rt build-docker-create --build-name "$BUILD_NAME" --build-number "$BUILD_NUMBER" core-containers-dev-local --image-file ./meta-file
 
 # Clean up
-rm -f meta-file
 
 echo "Docker build information created successfully."
