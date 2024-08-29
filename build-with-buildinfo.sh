@@ -36,6 +36,8 @@ echo "$META_INFO" > meta-file
 # Step 3: Use jf rt build-docker-create to create Docker build information
 jf rt build-docker-create --build-name "$BUILD_NAME" --build-number "$BUILD_NUMBER" core-containers-dev-local --image-file ./meta-file
 
-# Clean up
+# Step 4: Publish the build information to JFrog Artifactory
+jf rt build-publish "$BUILD_NAME" "$BUILD_NUMBER"
 
-echo "Docker build information created successfully."
+
+echo "Docker build information created and published successfully."
