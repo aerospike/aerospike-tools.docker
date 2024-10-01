@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM debian:bookworm-slim as build
+FROM debian:bookworm-slim AS build
 
 ARG TARGETARCH
 
@@ -12,7 +12,7 @@ RUN \
   && apt-get install -y \
   wget
 
-ARG TOOLS_VERSION=11.0.2
+ARG TOOLS_VERSION=11.1.0
 ARG TOOLS_ARTIFACT_URL_BASE="https://artifacts.aerospike.com/aerospike-tools/${TOOLS_VERSION}/aerospike-tools_${TOOLS_VERSION}_debian12"
 
 RUN \
@@ -30,11 +30,11 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bookworm-slim as install
+FROM debian:bookworm-slim AS install
 
 # Work from /aerospike
 WORKDIR /aerospike
-ENV PATH /aerospike:$PATH
+ENV PATH=/aerospike:$PATH
 
 # Install Aerospike tools
 
