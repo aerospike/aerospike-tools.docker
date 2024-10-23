@@ -48,11 +48,11 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM debian:bullseye-slim as install
+FROM debian:bullseye-slim AS install
 
 # Work from /aerospike
 WORKDIR /aerospike
-ENV PATH /aerospike:$PATH
+ENV PATH=/aerospike:$PATH
 
 # Install Aerospike
 
