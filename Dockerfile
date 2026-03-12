@@ -3,7 +3,7 @@
 #
 # http://github.com/aerospike/aerospike-tools.docker
 #
-FROM ubuntu:24.04 AS build
+FROM ubuntu:24.10 AS build
 
 ARG TARGETARCH
 
@@ -30,7 +30,7 @@ RUN \
   && cat *aerospike-tools*.sha256 | cut -d' ' -f1) \
   && echo "$TOOLS_SHA256 *aerospike-tools.tgz" | sha256sum -c -
 
-FROM ubuntu:24.04 AS install
+FROM ubuntu:24.10 AS install
 
 # Work from /aerospike
 WORKDIR /aerospike
